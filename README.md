@@ -1,2 +1,1 @@
-# Ketcho7.github.io
-This is the mini-site for my congressional app challenge submission, Study Buddy, this is not a real product just a school project.
+# This is the mini-site for my congressinal app chalenge submission, Study Buddy, this is not a read product just a school project
