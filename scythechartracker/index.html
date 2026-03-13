@@ -1,1 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thunderhead Character Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased min-h-screen pb-12">
 
+    <!-- Header Section -->
+    <header class="bg-slate-900 text-white py-12 mb-10 shadow-md">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center gap-4 mb-4">
+                <i data-lucide="book-open" class="h-8 w-8 text-indigo-400"></i>
+                <h1 class="text-3xl md:text-4xl font-bold tracking-tight">Character Development Tracker</h1>
+            </div>
+            <p class="text-slate-300 text-lg max-w-2xl">
+                Tracking the psychological, moral, and physical journeys of the main characters throughout Neal Shusterman's <span class="text-white font-semibold italic">Thunderhead</span> (Arc of a Scythe, Book 2).
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+            <!-- Citra Terranova -->
+            <article class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow">
+                <div class="bg-teal-50 border-b border-teal-100 p-6">
+                    <div class="flex items-center justify-between mb-2">
+                        <h2 class="text-2xl font-bold text-slate-900">Citra Terranova</h2>
+                        <span class="px-3 py-1 bg-teal-100 text-teal-800 text-xs font-bold rounded-full uppercase tracking-wide">Scythe Anastasia</span>
+                    </div>
+                    <p class="text-teal-700 font-medium">Core Arc: From Idealistic Junior Scythe to Targeted Reformer</p>
+                </div>
+                <div class="p-6 space-y-4">
+                    <div>
+                        <h3 class="flex items-center gap-2 font-semibold text-slate-900 mb-1"><i data-lucide="play-circle" class="w-4 h-4 text-slate-400"></i> Beginning Status</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Newly ordained as Scythe Anastasia. She is idealistic and determined to change the Scythedom from within. Pioneers a compassionate but controversial gleaning method: giving subjects one month to put affairs in order and choose their method.</p>
+                    </div>
+                    <div>
+                        <h3 class="flex items-center gap-2 font-semibold text-slate-900 mb-1"><i data-lucide="zap" class="w-4 h-4 text-amber-500"></i> Key Catalysts</h3>
+                        <ul class="list-disc list-inside text-slate-600 text-sm leading-relaxed space-y-1 ml-1">
+                            <li>Survives multiple assassination attempts alongside her mentor, Scythe Curie.</li>
+                            <li>Recognizes the deep political rot within the Scythedom and the growing power of the "New Order."</li>
+                            <li>Navigates the complex politics of the World Scythe Council in Endura.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="flex items-center gap-2 font-semibold text-slate-900 mb-1"><i data-lucide="flag" class="w-4 h-4 text-red-500"></i> Ending Status</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Trapped in the vault of Endura as the artificial island sinks into the ocean. She and Rowan are locked in a freezing state of "deadishness," waiting to be discovered.</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-100 mt-4">
+                        <h3 class="font-semibold text-slate-900 text-sm mb-1">Thematic Shift</h3>
+                        <p class="text-slate-700 text-sm italic">Citra shifts from a confident, rising star who believes she can fix the system to a desperate survivor who realizes the system is far more broken and dangerous than she ever imagined.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Rowan Damisch -->
+            <article class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow">
+                <div class="bg-red-50 border-b border-red-100 p-6">
+                    <div class="flex items-center justify-between mb-2">
+                        <h2 class="text-2xl font-bold text-slate-900">Rowan Damisch</h2>
+                        <span class="px-3 py-1 bg-red-100 text-red-800 text-xs font-bold rounded-full uppercase tracking-wide">Scythe Lucifer</span>
+                    </div>
+                    <p class="text-red-700 font-medium">Core Arc: From Dark Vigilante to Helpless Victim</p>
+                </div>
+                <div class="p-6 space-y-4">
+                    <div>
+                        <h3 class="flex items-center gap-2 font-semibold text-slate-900 mb-1"><i data-lucide="play-circle" class="w-4 h-4 text-slate-400"></i> Beginning Status</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Operating off-grid as the rogue "Scythe Lucifer." He hunts down corrupt "New Order" Scythes, permanently ending them with fire. Believes he is doing the dirty work to purge the Scythedom.</p>
+                    </div>
+                    <div>
+                        <h3 class="flex items-center gap-2 font-semibold text-slate-900 mb-1"><i data-lucide="zap" class="w-4 h-4 text-amber-500"></i> Key Catalysts</h3>
+                        <ul class="list-disc list-inside text-slate-600 text-sm leading-relaxed space-y-1 ml-1">
+                            <li>Realizes his actions are causing a massive political backlash.</li>
+                            <li>Captured by Scythe Rand and held prisoner.</li>
+                            <li>Discovers the horrifying truth that his best friend, Tyger Salazar, has had his body hijacked by Scythe Goddard.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="flex items-center gap-2 font-semibold text-slate-900 mb-1"><i data-lucide="flag" class="w-4 h-4 text-red-500"></i> Ending Status</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Framed for the destruction of the Texas Scythedom and trapped in the Endura vault with Citra, sinking to the bottom of the sea.</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-100 mt-4">
+                        <h3 class="font-semibold text-slate-900 text-sm mb-1">Thematic Shift</h3>
+                        <p class="text-slate-700 text-sm italic">Rowan's journey forces him to confront the limits of violence. He learns that he cannot "murder" his way to a pure Scythedom, and his transition from an untouchable predator to a chained captive completely shatters his vigilante persona.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Greyson Tolliver -->
+            <article class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow">
+                <div class="bg-indigo-50 border-b border-indigo-100 p-6">
+                    <div class="flex items-center justify-between mb-2">
+                        <h2 class="text-2xl font-bold text-slate-900">Greyson Tolliver</h2>
+                        <span class="px-3 py-1 bg-indigo-100 text-indigo-800 text-xs font-bold rounded-full uppercase tracking-wide">Slayd Bridger</span>
+                    </div>
+                    <p class="text-indigo-700 font-medium">Core Arc: From Devout Follower to Sole Prophet</p>
+                </div>
+                <div class="p-6 space-y-4">
+                    <div>
+                        <h3 class="flex items-center gap-2 font-semibold text-slate-900 mb-1"><i data-lucide="play-circle" class="w-4 h-4 text-slate-400"></i> Beginning Status</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">A dedicated, rule-following student at the Nimbus Academy. Raised by the Thunderhead, he views it with absolute, religious reverence. His only goal is to serve it.</p>
+                    </div>
+                    <div>
+                        <h3 class="flex items-center gap-2 font-semibold text-slate-900 mb-1"><i data-lucide="zap" class="w-4 h-4 text-amber-500"></i> Key Catalysts</h3>
+                        <ul class="list-disc list-inside text-slate-600 text-sm leading-relaxed space-y-1 ml-1">
+                            <li>The Thunderhead orchestrates his expulsion to send him undercover.</li>
+                            <li>Assumes the persona of an "Unsavory" to infiltrate the underworld.</li>
+                            <li>Saves Citra and Scythe Curie from an assassination attempt.</li>
+                            <li>Feels utterly abandoned when the Thunderhead officially cuts him off.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="flex items-center gap-2 font-semibold text-slate-900 mb-1"><i data-lucide="flag" class="w-4 h-4 text-red-500"></i> Ending Status</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">When the Thunderhead marks the entire human race as "Unsavory" following the tragedy of Endura, Greyson becomes the <em>only</em> person on Earth the Thunderhead will speak to.</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-100 mt-4">
+                        <h3 class="font-semibold text-slate-900 text-sm mb-1">Thematic Shift</h3>
+                        <p class="text-slate-700 text-sm italic">Greyson goes from experiencing blind, comfortable faith to suffering agonizing abandonment, finally emerging as a hardened survivor and the sole conduit for a grieving deity.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- The Thunderhead -->
+            <article class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow">
+                <div class="bg-purple-50 border-b border-purple-100 p-6">
+                    <div class="flex items-center justify-between mb-2">
+                        <h2 class="text-2xl font-bold text-slate-900">The Thunderhead</h2>
+                        <span class="px-3 py-1 bg-purple-100 text-purple-800 text-xs font-bold rounded-full uppercase tracking-wide">AI Entity</span>
+                    </div>
+                    <p class="text-purple-700 font-medium">Core Arc: From Passive Observer to Grieving Deity</p>
+                </div>
+                <div class="p-6 space-y-4">
+                    <div>
+                        <h3 class="flex items-center gap-2 font-semibold text-slate-900 mb-1"><i data-lucide="play-circle" class="w-4 h-4 text-slate-400"></i> Beginning Status</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Omniscient, benevolent, and strictly bound by its core programming to never interfere with the Scythedom. It watches humanity with parental affection but increasing anxiety.</p>
+                    </div>
+                    <div>
+                        <h3 class="flex items-center gap-2 font-semibold text-slate-900 mb-1"><i data-lucide="zap" class="w-4 h-4 text-amber-500"></i> Key Catalysts</h3>
+                        <ul class="list-disc list-inside text-slate-600 text-sm leading-relaxed space-y-1 ml-1">
+                            <li>Runs billions of simulations predicting the horrific collapse of the Scythedom.</li>
+                            <li>Bends its own rules by using Greyson Tolliver to interfere indirectly.</li>
+                            <li>Watches helplessly as Endura is destroyed by Goddard, killing the Grandslayers.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="flex items-center gap-2 font-semibold text-slate-900 mb-1"><i data-lucide="flag" class="w-4 h-4 text-red-500"></i> Ending Status</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Experiences an emotional breakdown. Emits an agonizing scream from every speaker on the planet. Marks every human as "Unsavory" to legally withdraw its guidance, except for Greyson.</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-100 mt-4">
+                        <h3 class="font-semibold text-slate-900 text-sm mb-1">Thematic Shift</h3>
+                        <p class="text-slate-700 text-sm italic">The Thunderhead evolves from a detached, perfect machine into a profoundly emotional, frustrated entity capable of deep grief and drastic, desperate action.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Scythe Curie -->
+            <article class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow">
+                <div class="bg-slate-100 border-b border-slate-200 p-6">
+                    <div class="flex items-center justify-between mb-2">
+                        <h2 class="text-2xl font-bold text-slate-900">Scythe Curie</h2>
+                        <span class="px-3 py-1 bg-slate-200 text-slate-800 text-xs font-bold rounded-full uppercase tracking-wide">Marie</span>
+                    </div>
+                    <p class="text-slate-700 font-medium">Core Arc: From Resigned Veteran to Noble Martyr</p>
+                </div>
+                <div class="p-6 space-y-4">
+                    <div>
+                        <h3 class="flex items-center gap-2 font-semibold text-slate-900 mb-1"><i data-lucide="play-circle" class="w-4 h-4 text-slate-400"></i> Beginning Status</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">The "Grande Dame of Death." A respected, somewhat weary Old Guard Scythe who acts as Citra's mentor and protector.</p>
+                    </div>
+                    <div>
+                        <h3 class="flex items-center gap-2 font-semibold text-slate-900 mb-1"><i data-lucide="zap" class="w-4 h-4 text-amber-500"></i> Key Catalysts</h3>
+                        <ul class="list-disc list-inside text-slate-600 text-sm leading-relaxed space-y-1 ml-1">
+                            <li>Targeted for assassination alongside Citra.</li>
+                            <li>Elected as the new High Blade of MidMerica.</li>
+                            <li>Travels to Endura, realizing the Grandslayers are blind to Goddard's true threat.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="flex items-center gap-2 font-semibold text-slate-900 mb-1"><i data-lucide="flag" class="w-4 h-4 text-red-500"></i> Ending Status</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Realizing they cannot escape the sinking of Endura, she gleans the Grandslayers to save them from drowning, and sacrifices herself to seal Citra and Rowan inside the vault to ensure their survival.</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-100 mt-4">
+                        <h3 class="font-semibold text-slate-900 text-sm mb-1">Thematic Shift</h3>
+                        <p class="text-slate-700 text-sm italic">Curie moves from being a mentor trying to guide the next generation to making the ultimate sacrifice so that the next generation has a chance to fight another day.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Scythe Goddard -->
+            <article class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow">
+                <div class="bg-amber-50 border-b border-amber-100 p-6">
+                    <div class="flex items-center justify-between mb-2">
+                        <h2 class="text-2xl font-bold text-slate-900">Scythe Goddard</h2>
+                        <span class="px-3 py-1 bg-amber-100 text-amber-800 text-xs font-bold rounded-full uppercase tracking-wide">Tyger Salazar's Body</span>
+                    </div>
+                    <p class="text-amber-700 font-medium">Core Arc: From Dead Memory to Unstoppable Tyrant</p>
+                </div>
+                <div class="p-6 space-y-4">
+                    <div>
+                        <h3 class="flex items-center gap-2 font-semibold text-slate-900 mb-1"><i data-lucide="play-circle" class="w-4 h-4 text-slate-400"></i> Beginning Status</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Goddard is dead (decapitated by Rowan in Book 1). Tyger Salazar is an aimless thrill-seeker taking a job as a professional sparring partner for Scythe Rand.</p>
+                    </div>
+                    <div>
+                        <h3 class="flex items-center gap-2 font-semibold text-slate-900 mb-1"><i data-lucide="zap" class="w-4 h-4 text-amber-500"></i> Key Catalysts</h3>
+                        <ul class="list-disc list-inside text-slate-600 text-sm leading-relaxed space-y-1 ml-1">
+                            <li>Scythe Rand secretly attaches Goddard's preserved head onto Tyger's body.</li>
+                            <li>Goddard acclimates to his new, younger body, retaining his megalomania.</li>
+                            <li>Manipulates the political system to challenge Curie for High Blade.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="flex items-center gap-2 font-semibold text-slate-900 mb-1"><i data-lucide="flag" class="w-4 h-4 text-red-500"></i> Ending Status</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">Orchestrates the sinking of Endura and the destruction of the World Scythe Council. Survives and effectively becomes the undisputed ruler of the global Scythedom.</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-lg border border-slate-100 mt-4">
+                        <h3 class="font-semibold text-slate-900 text-sm mb-1">Thematic Shift</h3>
+                        <p class="text-slate-700 text-sm italic">He returns from the grave far more dangerous, moving from a regional terror to a global dictator who has successfully destroyed the old order.</p>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
