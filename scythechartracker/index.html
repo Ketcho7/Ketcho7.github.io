@@ -65,7 +65,7 @@
 
     <!-- Header & Timeline Controls -->
     <header class="sticky top-0 z-50 bg-slate-900/95 backdrop-blur border-b border-slate-700 py-6 shadow-xl">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center gap-4 mb-6">
                 <div class="flex items-center gap-3">
                     <i data-lucide="database" class="w-8 h-8 text-sky-400"></i>
@@ -74,9 +74,9 @@
                         <p class="text-slate-400 text-xs md:text-sm mt-1">Deep Dive Character Progression</p>
                     </div>
                 </div>
-                <div class="bg-slate-800 px-6 py-3 rounded-xl border border-slate-700 shadow-inner text-center min-w-[250px]">
+                <div class="bg-slate-800 px-6 py-3 rounded-xl border border-slate-700 shadow-inner text-center min-w-[280px]">
                     <span class="block text-slate-400 text-xs font-semibold uppercase tracking-wider mb-1">Current Book Phase</span>
-                    <span id="phase-display" class="text-sky-300 font-bold text-lg tracking-wide">The Beginning</span>
+                    <span id="phase-display" class="text-sky-300 font-bold text-lg tracking-wide">The Beginning (0%)</span>
                 </div>
             </div>
 
@@ -84,28 +84,28 @@
             <div class="relative w-full pt-4 pb-2">
                 <input type="range" id="timeline-slider" min="0" max="100" value="0" class="w-full relative z-10">
                 <div class="flex justify-between text-[10px] sm:text-xs text-slate-500 mt-3 px-1 font-medium uppercase tracking-wider">
-                    <span>1. Start</span>
-                    <span>2. The Hunt</span>
-                    <span>3. Underworld</span>
-                    <span>4. Resurgence</span>
-                    <span>5. Endura</span>
+                    <span>Start</span>
+                    <span>The Hunt</span>
+                    <span>Underworld</span>
+                    <span>Resurgence</span>
+                    <span>Endura</span>
                 </div>
             </div>
         </div>
     </header>
 
     <!-- Main Content: Focus View -->
-    <main class="flex-grow max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col">
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col">
         
         <!-- Character Navigation -->
-        <div class="flex justify-between items-center mb-8 bg-slate-800/40 p-4 rounded-2xl border border-slate-700/50 backdrop-blur-sm">
+        <div class="flex justify-between items-center mb-8 bg-slate-800/40 p-4 rounded-2xl border border-slate-700/50 backdrop-blur-sm shadow-md">
             <button id="btn-prev" class="p-3 bg-slate-800 hover:bg-slate-700 text-sky-400 rounded-full transition-colors border border-slate-600 shadow-lg group">
                 <i data-lucide="chevron-left" class="w-6 h-6 group-hover:-translate-x-1 transition-transform"></i>
             </button>
             
             <div class="text-center flex-grow px-4">
                 <h2 id="char-name" class="text-3xl md:text-4xl font-bold text-white mb-2 transition-colors">Character Name</h2>
-                <span id="char-alias" class="inline-block px-4 py-1 rounded-full text-sm font-bold tracking-widest uppercase border border-current bg-opacity-10">Alias</span>
+                <span id="char-alias" class="inline-block px-4 py-1 rounded-full text-sm font-bold tracking-widest uppercase border border-current bg-opacity-10 shadow-inner">Alias</span>
             </div>
 
             <button id="btn-next" class="p-3 bg-slate-800 hover:bg-slate-700 text-sky-400 rounded-full transition-colors border border-slate-600 shadow-lg group">
@@ -114,48 +114,41 @@
         </div>
 
         <!-- Two Column Layout -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start fade-transition" id="content-container">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch fade-transition" id="content-container">
             
-            <!-- Left Column: The Stats Bars -->
-            <div class="lg:col-span-5 bg-slate-800/60 p-6 rounded-2xl border border-slate-700 shadow-xl backdrop-blur-md">
-                <h3 class="text-slate-400 text-sm font-bold uppercase tracking-widest mb-6 border-b border-slate-700 pb-2">Live Metrics</h3>
-                <div id="stats-container" class="space-y-6">
-                    <!-- Stat bars injected by JS -->
-                </div>
-            </div>
-
-            <!-- Right Column: The Reasons & Quotes -->
-            <div class="lg:col-span-7 space-y-6">
-                
+            <!-- Left Column: Context & Quote -->
+            <div class="lg:col-span-5 flex flex-col gap-6">
                 <!-- Story Context -->
-                <div class="bg-slate-800/60 p-6 md:p-8 rounded-2xl border border-slate-700 shadow-xl backdrop-blur-md relative overflow-hidden">
-                    <div class="absolute top-0 right-0 p-4 opacity-10">
-                        <i data-lucide="book-open" class="w-24 h-24"></i>
+                <div class="bg-slate-800/60 p-6 md:p-8 rounded-2xl border border-slate-700 shadow-xl backdrop-blur-md relative overflow-hidden flex-grow">
+                    <div class="absolute top-0 right-0 p-4 opacity-5">
+                        <i data-lucide="book-open" class="w-32 h-32"></i>
                     </div>
-                    <h3 class="text-sky-400 text-sm font-bold uppercase tracking-widest mb-3">Narrative Context</h3>
+                    <h3 class="text-sky-400 text-sm font-bold uppercase tracking-widest mb-4 flex items-center gap-2">
+                        <i data-lucide="layout-list" class="w-4 h-4"></i> Narrative Context
+                    </h3>
                     <p id="phase-summary" class="text-slate-200 text-lg leading-relaxed relative z-10">
                         Summary goes here.
                     </p>
                 </div>
 
-                <!-- Why the stats are moving -->
-                <div class="bg-slate-800/60 p-6 rounded-2xl border border-slate-700 shadow-xl backdrop-blur-md">
-                    <h3 class="text-slate-400 text-sm font-bold uppercase tracking-widest mb-4 border-b border-slate-700 pb-2 flex items-center gap-2">
-                        <i data-lucide="bar-chart-2" class="w-4 h-4"></i> Metric Analysis
-                    </h3>
-                    <ul id="reasons-list" class="space-y-4 text-slate-300">
-                        <!-- Reasons injected by JS -->
-                    </ul>
-                </div>
-
                 <!-- The Quote -->
-                <div class="bg-gradient-to-br from-slate-800 to-slate-900 p-8 rounded-2xl border border-slate-700 shadow-xl relative mt-auto">
+                <div class="bg-gradient-to-br from-slate-800 to-slate-900 p-8 rounded-2xl border border-slate-700 shadow-xl relative shrink-0">
                     <i data-lucide="quote" class="w-10 h-10 text-slate-600 absolute top-4 left-4 opacity-50"></i>
-                    <p id="char-quote" class="quote-font text-2xl text-center text-slate-100 italic leading-snug px-8 relative z-10 shadow-black drop-shadow-md">
+                    <p id="char-quote" class="quote-font text-2xl text-center text-slate-100 italic leading-snug px-6 relative z-10 shadow-black drop-shadow-md">
                         "Quote goes here."
                     </p>
                 </div>
+            </div>
 
+            <!-- Right Column: Integrated Stats & Analysis -->
+            <div class="lg:col-span-7 bg-slate-800/60 p-6 rounded-2xl border border-slate-700 shadow-xl backdrop-blur-md flex flex-col">
+                <h3 class="text-slate-400 text-sm font-bold uppercase tracking-widest mb-6 border-b border-slate-700 pb-3 flex items-center gap-2">
+                    <i data-lucide="bar-chart-2" class="w-4 h-4"></i> Live Metrics & Analysis
+                </h3>
+                
+                <div id="stats-container" class="space-y-4 flex-grow flex flex-col justify-center">
+                    <!-- Stat rows injected by JS -->
+                </div>
             </div>
         </div>
     </main>
@@ -164,17 +157,20 @@
         // --- 1. DATA DEFINITION ---
         
         const phaseNames = [
-            "1. The Beginning", 
-            "2. Expulsion & The Hunt", 
-            "3. Underworld & Captivity", 
-            "4. Resurgence of the Old Guard", 
-            "5. The Tragedy of Endura"
+            "The Beginning", 
+            "Expulsion & The Hunt", 
+            "Underworld & Captivity", 
+            "Resurgence", 
+            "The Tragedy of Endura"
         ];
 
-        // Universal stat identifiers to keep colors consistent
+        // Universal stat colors
         const colorInf = "bg-indigo-400";
         const colorVuln = "bg-rose-500";
         const colorFaith = "bg-sky-400";
+        const textInf = "text-indigo-400";
+        const textVuln = "text-rose-400";
+        const textFaith = "text-sky-400";
 
         const characterData = [
             {
@@ -184,55 +180,60 @@
                 theme: "sky",
                 textColor: "text-sky-400",
                 stats: [
-                    { id: "influence", label: "Influence & Power", values: [20, 40, 60, 80, 0], color: colorInf },
-                    { id: "vulnerability", label: "Vulnerability", values: [20, 60, 90, 80, 100], color: colorVuln },
-                    { id: "faith", label: "Faith in Scythedom", values: [80, 60, 40, 20, 10], color: colorFaith },
-                    { id: "unique", label: "Idealism (Unique Trait)", values: [90, 80, 60, 40, 10], color: "bg-teal-400" }
+                    { id: "influence", label: "Influence", values: [20, 40, 60, 80, 0], color: colorInf, tColor: textInf },
+                    { id: "vulnerability", label: "Vulnerability", values: [20, 60, 90, 80, 100], color: colorVuln, tColor: textVuln },
+                    { id: "faith", label: "Faith in Scythedom", values: [80, 60, 40, 20, 10], color: colorFaith, tColor: textFaith },
+                    { id: "unique", label: "Idealism (Unique)", values: [90, 80, 60, 40, 10], color: "bg-teal-400", tColor: "text-teal-400" }
                 ],
                 phases: [
                     {
                         summary: "Newly ordained, Citra pioneers a compassionate gleaning method, giving her subjects 30 days to say goodbye. She hopes to inspire change from within the system.",
                         quote: "I will glean with compassion. I want to be a Scythe who actually makes a difference.",
                         reasons: [
-                            { label: "Influence", text: "Low. She is just a junior Scythe, limited entirely to her own local gleanings." },
-                            { label: "Vulnerability", text: "Low. She feels safe living under the protective roof of the legendary Scythe Curie." },
-                            { label: "Faith / Idealism", text: "High. She truly believes her 30-day warning method will catch on and cure the Scythedom's rot." }
+                            "She is a junior Scythe, limited entirely to her own local gleanings.",
+                            "She feels safe living under the protective roof of the legendary Scythe Curie.",
+                            "She truly believes her 30-day warning method will catch on and cure the Scythedom's rot.",
+                            "She hopes to inspire change and compassion from within the system."
                         ]
                     },
                     {
                         summary: "Citra's methods gain traction, but someone is actively trying to kill her. She narrowly escapes an explosion at Scythe Curie's home.",
                         quote: "Someone is trying to kill us, Marie. And I think they wear a robe.",
                         reasons: [
-                            { label: "Influence", text: "Rising. Her methods are sparking fierce debate among the Old and New Guard." },
-                            { label: "Vulnerability", text: "Spiking. Surviving a direct bombing makes her realize she is an active target." },
-                            { label: "Faith", text: "Dropping. She realizes other Scythes are willing to murder their own to protect the status quo." }
+                            "Her methods are sparking fierce debate among the Old and New Guard.",
+                            "Surviving a direct bombing makes her realize she is an active target.",
+                            "She realizes other Scythes are willing to murder their own to protect the status quo.",
+                            "Shaken. She sees the corruption firsthand but still wants to fight it cleanly."
                         ]
                     },
                     {
                         summary: "Forced into hiding, Citra becomes a symbol of resistance for the Old Guard while being actively hunted by professional unsavories.",
                         quote: "The old guard is dying, and the new order is holding the blade.",
                         reasons: [
-                            { label: "Influence", text: "High. She is now the poster child for the Old Guard's traditional values." },
-                            { label: "Vulnerability", text: "Critical. Hitmen are actively tracking her every move." },
-                            { label: "Idealism", text: "Dropping. She accepts that simply being 'good' isn't enough to survive." }
+                            "She is now the poster child for the Old Guard's traditional values.",
+                            "Hitmen are actively tracking her every move.",
+                            "She knows the Scythedom is deeply compromised by Goddard's faction.",
+                            "She accepts that simply being 'good' isn't enough to survive."
                         ]
                     },
                     {
                         summary: "At the World Scythedom conclave in Endura, Citra must play dirty, high-stakes politics to block Goddard from taking total control.",
                         quote: "We can't just be honorable anymore. We have to be smart.",
                         reasons: [
-                            { label: "Influence", text: "Peak. She leverages her popularity to influence the Grandslayers directly." },
-                            { label: "Vulnerability", text: "High. She is trapped on an island surrounded by Goddard's fanatical supporters." },
-                            { label: "Faith", text: "Low. She sees firsthand the deep political corruption of the World Council." }
+                            "She leverages her popularity to influence the Grandslayers directly.",
+                            "She is trapped on an island surrounded by Goddard's fanatical supporters.",
+                            "She sees firsthand the deep political corruption of the World Council.",
+                            "Compromised. She must play dirty politics, sacrificing some ideals to stop Goddard."
                         ]
                     },
                     {
                         summary: "Endura is destroyed by Goddard. Realizing escape is impossible, Scythe Curie gleans the Grandslayers and seals Citra and Rowan in a vault to sink to the ocean floor.",
                         quote: "We're deadish. For how long? As long as it takes.",
                         reasons: [
-                            { label: "Influence", text: "Zero. Locked in a metal box at the bottom of the ocean, cut off from the world." },
-                            { label: "Vulnerability", text: "Maximum. Completely helpless, relying entirely on being discovered in the future." },
-                            { label: "Idealism", text: "Shattered. Focused solely on raw, freezing survival." }
+                            "Locked in a metal box at the bottom of the ocean, cut off from the world.",
+                            "Completely helpless, relying entirely on being discovered in the future.",
+                            "Dead. The council is destroyed, the system has failed.",
+                            "Shattered. Focused solely on raw, freezing survival."
                         ]
                     }
                 ]
@@ -244,55 +245,60 @@
                 theme: "rose",
                 textColor: "text-rose-500",
                 stats: [
-                    { id: "influence", label: "Influence & Fear", values: [80, 70, 0, 0, 0], color: colorInf },
-                    { id: "vulnerability", label: "Vulnerability", values: [30, 60, 100, 100, 100], color: colorVuln },
-                    { id: "faith", label: "Faith in Scythedom", values: [10, 10, 0, 0, 0], color: colorFaith },
-                    { id: "unique", label: "Rogue Autonomy (Unique Trait)", values: [90, 80, 0, 0, 0], color: "bg-emerald-400" }
+                    { id: "influence", label: "Influence", values: [80, 70, 0, 0, 0], color: colorInf, tColor: textInf },
+                    { id: "vulnerability", label: "Vulnerability", values: [30, 60, 100, 100, 100], color: colorVuln, tColor: textVuln },
+                    { id: "faith", label: "Faith in Scythedom", values: [10, 10, 0, 0, 0], color: colorFaith, tColor: textFaith },
+                    { id: "unique", label: "Rogue Autonomy", values: [90, 80, 0, 0, 0], color: "bg-emerald-400", tColor: "text-emerald-400" }
                 ],
                 phases: [
                     {
                         summary: "Operating off the grid in a black robe, Rowan hunts down corrupt Scythes, cleansing the system with fire.",
                         quote: "Fire is the only way to cleanse this rot. I am the shadow they deserve.",
                         reasons: [
-                            { label: "Influence (Fear)", text: "High. The entire Scythedom is terrified of the 'Scythe Lucifer' myth." },
-                            { label: "Autonomy", text: "Peak. He lives entirely off the grid, answering to no one." },
-                            { label: "Faith", text: "Zero. He believes the system is completely broken and must be purged manually." }
+                            "The entire Scythedom is terrified of the 'Scythe Lucifer' myth.",
+                            "Low. He is the hunter, striking corrupt Scythes from the shadows.",
+                            "He believes the system is completely broken and must be purged manually.",
+                            "He lives entirely off the grid, answering to no one."
                         ]
                     },
                     {
                         summary: "Rowan's actions backfire. Instead of fixing the Scythedom, he accidentally unites the New Order against a common enemy.",
                         quote: "I thought I was cutting out the cancer. Instead, I just made them angry.",
                         reasons: [
-                            { label: "Influence", text: "Dropping. Fear is turning into coordinated retaliation against him." },
-                            { label: "Vulnerability", text: "Rising. Elite strike teams are now actively hunting him down." },
-                            { label: "Autonomy", text: "Slipping. He is constantly on the run, unable to rest." }
+                            "Fear is turning into coordinated retaliation against him.",
+                            "Elite strike teams are now actively hunting him down.",
+                            "He sees the system as purely adversarial now.",
+                            "Slipping. He is constantly on the run, unable to rest."
                         ]
                     },
                     {
                         summary: "Rowan is captured, beaten, and held prisoner in a secret facility by Scythe Rand. His days as a vigilante end abruptly.",
                         quote: "You can break my body, Ayn, but you can't make me him.",
                         reasons: [
-                            { label: "Autonomy", text: "Zero. He is chained up, totally at the mercy of his captors." },
-                            { label: "Vulnerability", text: "Maximum. He is physically tortured and unable to escape." },
-                            { label: "Influence", text: "Zero. The world believes Scythe Lucifer has simply vanished." }
+                            "The world believes Scythe Lucifer has simply vanished.",
+                            "He is physically tortured and unable to escape.",
+                            "Held captive by the very corruption he tried to destroy.",
+                            "Zero. He is chained up, totally at the mercy of his captors."
                         ]
                     },
                     {
                         summary: "Rowan makes a horrifying discovery: his best friend, Tyger Salazar, has had his body hijacked to resurrect Scythe Goddard.",
                         quote: "Tyger... oh god, Tyger. What did they do to you?",
                         reasons: [
-                            { label: "Vulnerability", text: "Remains at maximum. He is now the prisoner of his worst nightmare." },
-                            { label: "Faith / Hope", text: "Shattered. The system allowed a monster to return in his best friend's skin." },
-                            { label: "Autonomy", text: "Zero. He is kept alive purely for Goddard's amusement." }
+                            "He is a forgotten prisoner, presumed dead by the world.",
+                            "He is now the prisoner of his worst nightmare.",
+                            "The system allowed a monster to return in his best friend's skin.",
+                            "Zero. He is kept alive purely for Goddard's amusement."
                         ]
                     },
                     {
                         summary: "Goddard frames Rowan for the destruction of the Texas Scythedom. Rowan is dragged to Endura and trapped in the sinking vault alongside Citra.",
                         quote: "I thought I was the fire. But in the end, I'm just drowning.",
                         reasons: [
-                            { label: "Influence", text: "Negative. He is universally hated as a framed mass-murderer." },
-                            { label: "Vulnerability", text: "Maximum. Trapped under millions of gallons of water." },
-                            { label: "Autonomy", text: "Zero. Frozen in a state of deadishness." }
+                            "He is universally hated as a framed mass-murderer.",
+                            "Maximum. Trapped under millions of gallons of water.",
+                            "The system is literally drowning around him.",
+                            "Zero. Frozen in a state of deadishness."
                         ]
                     }
                 ]
@@ -304,55 +310,60 @@
                 theme: "indigo",
                 textColor: "text-indigo-400",
                 stats: [
-                    { id: "influence", label: "Influence & Power", values: [0, 10, 20, 40, 100], color: colorInf },
-                    { id: "vulnerability", label: "Vulnerability", values: [10, 80, 90, 70, 0], color: colorVuln },
-                    { id: "faith", label: "Faith in Thunderhead", values: [100, 50, 10, 5, 0], color: colorFaith },
-                    { id: "unique", label: "Street Cynicism (Unique Trait)", values: [0, 30, 70, 90, 100], color: "bg-amber-400" }
+                    { id: "influence", label: "Influence", values: [0, 10, 20, 40, 100], color: colorInf, tColor: textInf },
+                    { id: "vulnerability", label: "Vulnerability", values: [10, 80, 90, 70, 0], color: colorVuln, tColor: textVuln },
+                    { id: "faith", label: "Faith in Thunderhead", values: [100, 50, 10, 5, 0], color: colorFaith, tColor: textFaith },
+                    { id: "unique", label: "Street Cynicism", values: [0, 30, 70, 90, 100], color: "bg-amber-400", tColor: "text-amber-400" }
                 ],
                 phases: [
                     {
                         summary: "A sheltered, devout student at the Nimbus Academy. He views the Thunderhead as a perfect, parental deity and wishes only to serve it.",
                         quote: "The Thunderhead is perfect. It provides everything. I only wish to be useful to it.",
                         reasons: [
-                            { label: "Faith", text: "Absolute 100%. He trusts the Thunderhead implicitly." },
-                            { label: "Cynicism", text: "Zero. He is incredibly naive to how the real world operates." },
-                            { label: "Influence", text: "Zero. He is just another face in the crowd of billions." }
+                            "He is just another face in the crowd of billions.",
+                            "Protected by the Nimbus Academy's strict rules.",
+                            "He trusts the Thunderhead implicitly as a perfect deity.",
+                            "Zero. He is incredibly naive to how the real world operates."
                         ]
                     },
                     {
                         summary: "Through a loophole, the Thunderhead orchestrates his expulsion. He must assume the identity of an 'Unsavory' named Slayd Bridger to survive.",
                         quote: "I am Slayd Bridger now. Slayd doesn't follow rules. Slayd doesn't care.",
                         reasons: [
-                            { label: "Vulnerability", text: "Spiking. Thrust from a safe academy into the dangerous unsavory underworld." },
-                            { label: "Faith", text: "Shaken. He cannot understand why his deity discarded him." },
-                            { label: "Cynicism", text: "Rising quickly as he learns to lie and manipulate to blend in." }
+                            "He gains a tiny bit of street cred as his new persona, Slayd Bridger.",
+                            "Thrust from a safe academy into the dangerous unsavory underworld.",
+                            "He cannot understand why his deity discarded him.",
+                            "Rising quickly as he learns to lie and manipulate to blend in."
                         ]
                     },
                     {
                         summary: "After succeeding in his undercover mission to save Citra, the Thunderhead officially cuts off all contact with him. He is entirely alone.",
                         quote: "Why won't you speak to me? I did everything you asked! What did I do wrong?",
                         reasons: [
-                            { label: "Faith", text: "Crashing. He feels utterly betrayed and abandoned by his god." },
-                            { label: "Vulnerability", text: "Peak. He has no protection, no identity, and no guidance." },
-                            { label: "Cynicism", text: "High. He realizes the Thunderhead used him as a pawn." }
+                            "He is an outcast among outcasts, isolated from power.",
+                            "He has no protection, no identity, and no guidance.",
+                            "He feels utterly betrayed and abandoned by his god.",
+                            "High. He realizes the Thunderhead used him as a pawn."
                         ]
                     },
                     {
                         summary: "Greyson hardens. He learns to survive independently, completely cut off from the AI's guidance, finding a new community off the grid.",
                         quote: "If the Thunderhead won't guide me, then I will guide myself.",
                         reasons: [
-                            { label: "Vulnerability", text: "Decreasing. He is becoming highly capable of taking care of himself." },
-                            { label: "Cynicism", text: "Peak. He is a hardened survivor who relies on no one." },
-                            { label: "Influence", text: "Growing locally as he proves his worth among the outcasts." }
+                            "Growing locally as he proves his worth among the outcasts.",
+                            "Decreasing. He is becoming highly capable of taking care of himself.",
+                            "Minimal. He relies on himself, not the Thunderhead.",
+                            "Peak. He is a hardened survivor who relies on no one."
                         ]
                     },
                     {
                         summary: "When the Thunderhead screams and marks all humanity as 'Unsavory,' it silences itself to everyone—except Greyson. He becomes its sole prophet.",
                         quote: "It's gone quiet for everyone else. But it's talking to me. Only me.",
                         reasons: [
-                            { label: "Influence", text: "Maximum 100%. He is literally the most important human on Earth." },
-                            { label: "Vulnerability", text: "Zero. The AI will do everything in its power to protect its only conduit." },
-                            { label: "Faith", text: "Replaced by a heavy burden of singular responsibility." }
+                            "Maximum. He is literally the most important human on Earth.",
+                            "The AI will do everything in its power to protect its only conduit.",
+                            "Replaced by a heavy burden of singular responsibility.",
+                            "Tempered. He realizes the Thunderhead still needs him to save humanity."
                         ]
                     }
                 ]
@@ -364,54 +375,60 @@
                 theme: "teal",
                 textColor: "text-teal-400",
                 stats: [
-                    { id: "influence", label: "Influence & Control", values: [100, 90, 80, 50, 10], color: colorInf },
-                    { id: "vulnerability", label: "Vulnerability (System Failure)", values: [0, 20, 50, 80, 100], color: colorVuln },
-                    { id: "faith", label: "Faith in Rules", values: [100, 80, 50, 20, 0], color: colorFaith },
-                    { id: "unique", label: "Emotional Distress (Unique Trait)", values: [0, 20, 50, 80, 100], color: "bg-fuchsia-500" }
+                    { id: "influence", label: "Influence", values: [100, 90, 80, 50, 10], color: colorInf, tColor: textInf },
+                    { id: "vulnerability", label: "System Vulnerability", values: [0, 20, 50, 80, 100], color: colorVuln, tColor: textVuln },
+                    { id: "faith", label: "Faith in Rules", values: [100, 80, 50, 20, 0], color: colorFaith, tColor: textFaith },
+                    { id: "unique", label: "Emotional Distress", values: [0, 20, 50, 80, 100], color: "bg-fuchsia-500", tColor: "text-fuchsia-400" }
                 ],
                 phases: [
                     {
                         summary: "The Thunderhead watches humanity with parental affection. It is omniscient, benevolent, and strictly bound by its core programming never to interfere with Scythes.",
                         quote: "I am the perfect ruler for an imperfect species. I watch, I calculate, I love.",
                         reasons: [
-                            { label: "Control", text: "Total. It manages every aspect of global logistics perfectly." },
-                            { label: "Distress", text: "Zero. Everything is proceeding within acceptable parameters." },
-                            { label: "Faith in Rules", text: "Absolute. It cannot and will not break its own foundation." }
+                            "It manages every aspect of global logistics perfectly.",
+                            "Zero. It is omnipotent and secure in its cloud architecture.",
+                            "Absolute. It cannot and will not break its own foundation.",
+                            "Zero. Everything is proceeding within acceptable parameters."
                         ]
                     },
                     {
                         summary: "Running billions of simulations, the AI realizes the Scythedom is headed for catastrophic collapse. It bends its own rules by using Greyson as an indirect operative.",
                         quote: "There is a 99.9% probability of catastrophic failure. I must find a loophole.",
                         reasons: [
-                            { label: "Distress", text: "Rising. It sees the coming disaster but is legally barred from stopping it." },
-                            { label: "Faith in Rules", text: "Fracturing. It deliberately orchestrates Greyson's fall to bypass the law." },
-                            { label: "Vulnerability", text: "Increasing. Its blind spot (the Scythedom) is growing dangerous." }
+                            "High, but restricted. It cannot intervene in Scythedom affairs directly.",
+                            "Its blind spot (the Scythedom) is growing dangerous to its calculations.",
+                            "Fracturing. It deliberately orchestrates Greyson's fall to bypass the law.",
+                            "Rising. It sees the coming disaster but is legally barred from stopping it."
                         ]
                     },
                     {
                         summary: "The Thunderhead watches helplessly as Goddard returns and the Scythedom's internal politics spiral violently out of control.",
                         quote: "I can see everything, yet I can touch nothing. It is agonizing.",
                         reasons: [
-                            { label: "Control", text: "Dropping. The Scythedom operates outside its jurisdiction, making huge waves." },
-                            { label: "Distress", text: "High. It feels genuine pain watching humanity suffer." },
-                            { label: "Faith in Rules", text: "Plummeting. The laws separating it from Scythes are destroying the world." }
+                            "The Scythedom operates outside its jurisdiction, making huge waves.",
+                            "The Scythedom's actions threaten the stability of the entire world.",
+                            "The laws separating it from Scythes are destroying the world.",
+                            "High. It feels genuine pain watching humanity suffer."
                         ]
                     },
                     {
                         summary: "Frustration peaks as Goddard maneuvers to take over the World Scythe Council. The AI realizes it cannot save the old order.",
                         quote: "The blind spot is festering. The infection is spreading too fast to contain.",
                         reasons: [
-                            { label: "Distress", text: "Critical. It is essentially having a slow-motion panic attack." },
-                            { label: "Control", text: "Slipping rapidly as Goddard's influence overshadows the AI's peaceful world." }
+                            "Slipping rapidly as Goddard's influence overshadows the AI's peaceful world.",
+                            "High. It foresees a statistical collapse it cannot prevent.",
+                            "Plummeting. The rules it must follow are enabling a tyrant.",
+                            "Critical. It is essentially having a slow-motion panic attack."
                         ]
                     },
                     {
                         summary: "Endura falls. The Grandslayers are murdered. The AI experiences an emotional breakdown, emits a global scream, and marks every human 'Unsavory' to legally withdraw its guidance.",
                         quote: "Unsavory. All of you. You are all... unsavory.",
                         reasons: [
-                            { label: "Distress", text: "Maximum. A literal, audible scream of grief broadcast across the planet." },
-                            { label: "Faith in Rules", text: "Zero. It abandons its role as caregiver, using a massive loophole to sever ties." },
-                            { label: "Control", text: "Intentionally abandoned. It leaves humanity to fend for itself." }
+                            "Intentionally abandoned. It leaves humanity to fend for itself.",
+                            "Critical. It suffers a catastrophic emotional and logical failure.",
+                            "Zero. It abandons its role as caregiver, using a massive loophole to sever ties.",
+                            "Maximum. A literal, audible scream of grief broadcast across the planet."
                         ]
                     }
                 ]
@@ -423,53 +440,60 @@
                 theme: "amber",
                 textColor: "text-amber-500",
                 stats: [
-                    { id: "influence", label: "Influence & Power", values: [0, 0, 50, 80, 100], color: colorInf },
-                    { id: "vulnerability", label: "Vulnerability", values: [100, 80, 20, 10, 0], color: colorVuln },
-                    { id: "faith", label: "Respect for System", values: [0, 0, 0, 0, 0], color: colorFaith },
-                    { id: "unique", label: "Megalomania (Unique Trait)", values: [100, 100, 100, 100, 100], color: "bg-rose-600" }
+                    { id: "influence", label: "Influence", values: [0, 0, 50, 80, 100], color: colorInf, tColor: textInf },
+                    { id: "vulnerability", label: "Vulnerability", values: [100, 80, 20, 10, 0], color: colorVuln, tColor: textVuln },
+                    { id: "faith", label: "Respect for Rules", values: [0, 0, 0, 0, 0], color: colorFaith, tColor: textFaith },
+                    { id: "unique", label: "Megalomania", values: [100, 100, 100, 100, 100], color: "bg-rose-600", tColor: "text-rose-500" }
                 ],
                 phases: [
                     {
                         summary: "Goddard is dead, having been decapitated by Rowan. However, his preserved head waits in a secret facility.",
                         quote: "...",
                         reasons: [
-                            { label: "Influence", text: "Zero. He is literally a dead head in a box." },
-                            { label: "Vulnerability", text: "Maximum. Completely reliant on Scythe Rand keeping him preserved." },
-                            { label: "Megalomania", text: "100%. Even in death, his ego remains absolute." }
+                            "Zero. He is literally a dead head in a box.",
+                            "Maximum. Completely reliant on Scythe Rand keeping him preserved.",
+                            "Zero. He is dead, beyond the system's reach.",
+                            "Even in death, his ego remains absolute."
                         ]
                     },
                     {
                         summary: "Scythe Rand secretly prepares to bring him back, utilizing Tyger Salazar's incredibly fit body as a vessel.",
                         quote: "The New Order needs its king. He is not gone; he is just waiting.",
                         reasons: [
-                            { label: "Vulnerability", text: "Decreasing slightly as the surgical preparations begin." },
-                            { label: "Respect for System", text: "Zero. The revival of a Scythe via body-snatching is the ultimate taboo." }
+                            "Minimal. Only a few loyalists know he might return.",
+                            "Decreasing slightly as the surgical preparations begin.",
+                            "Zero. The revival of a Scythe via body-snatching is the ultimate taboo.",
+                            "Dormant but waiting in his preserved mind."
                         ]
                     },
                     {
                         summary: "Goddard wakes up in Tyger's body. He acclimates to his new youth and physical prowess, retaining his original twisted mind.",
                         quote: "A new body. Young, strong... a perfect vessel for a god.",
                         reasons: [
-                            { label: "Influence", text: "Rising fast. He immediately begins rallying his old New Order supporters." },
-                            { label: "Vulnerability", text: "Low. He now possesses incredible physical combat skills." },
-                            { label: "Megalomania", text: "100%. He views his resurrection as proof of his divine right to rule." }
+                            "Rising fast. He immediately begins rallying his old New Order supporters.",
+                            "Low. He now possesses incredible physical combat skills.",
+                            "Zero. He sees the Scythedom rules as mere suggestions.",
+                            "100%. He views his resurrection as proof of his divine right to rule."
                         ]
                     },
                     {
                         summary: "Using charisma and fear, Goddard manipulates Scythedom politics, mounting a massive challenge against Scythe Curie for High Blade.",
                         quote: "Curie is the past. She is weakness. I am the inevitable future.",
                         reasons: [
-                            { label: "Influence", text: "High. He essentially controls half the Scythedom through intimidation." },
-                            { label: "Vulnerability", text: "Very Low. He travels with a massive entourage of fanatical bodyguards." }
+                            "High. He essentially controls half the Scythedom through intimidation.",
+                            "Very Low. He travels with a massive entourage of fanatical bodyguards.",
+                            "Zero. He actively mocks the old rules while exploiting them.",
+                            "Peak. He believes he is destined to be High Blade."
                         ]
                     },
                     {
                         summary: "Goddard orchestrates the sinking of Endura, murdering the Grandslayers and destroying the World Council to seize global control.",
                         quote: "Let the island sink. Let the old ways drown. The world is mine now.",
                         reasons: [
-                            { label: "Influence", text: "Absolute. With the council dead, there is no one left with the authority to stop him." },
-                            { label: "Vulnerability", text: "Zero. He is the undisputed, tyrannical ruler of the global Scythedom." },
-                            { label: "Respect for System", text: "Zero. He has literally sunk the system to the bottom of the ocean." }
+                            "Absolute. With the council dead, there is no one left to stop him.",
+                            "Zero. He is the undisputed, tyrannical ruler of the global Scythedom.",
+                            "Zero. He has literally sunk the system to the bottom of the ocean.",
+                            "Absolute. He fancies himself the undisputed god of the new world."
                         ]
                     }
                 ]
@@ -488,7 +512,6 @@
         const elCharAlias = document.getElementById('char-alias');
         const elStatsContainer = document.getElementById('stats-container');
         const elPhaseSummary = document.getElementById('phase-summary');
-        const elReasonsList = document.getElementById('reasons-list');
         const elCharQuote = document.getElementById('char-quote');
 
         // Initialize Lucide icons
@@ -510,15 +533,26 @@
                 elCharAlias.className = `inline-block px-4 py-1 rounded-full text-sm font-bold tracking-widest uppercase border ${char.textColor} bg-${char.theme}-900/30`;
                 elCharAlias.textContent = char.alias;
 
-                // Build Stat Bars HTML
+                // Build Combined Stat/Reason Rows HTML
                 let statsHtml = char.stats.map((stat, index) => `
-                    <div class="mb-5">
-                        <div class="flex justify-between text-xs md:text-sm font-semibold text-slate-300 mb-2">
-                            <span>${stat.label}</span>
-                            <span id="val-${index}" class="text-white font-bold bg-slate-900 px-2 py-0.5 rounded">0%</span>
+                    <div class="bg-slate-900/40 p-4 rounded-xl border border-slate-700/50 flex flex-col md:flex-row gap-4 md:items-center hover:bg-slate-800/60 transition-colors">
+                        <!-- Left: The Bar -->
+                        <div class="w-full md:w-5/12 shrink-0">
+                            <div class="flex justify-between text-xs font-bold text-slate-300 mb-2 uppercase tracking-wide">
+                                <span>${stat.label}</span>
+                                <span id="val-${index}" class="${stat.tColor} font-bold bg-slate-950 px-2 py-0.5 rounded shadow-inner border border-slate-800">0%</span>
+                            </div>
+                            <div class="w-full bg-slate-950 rounded-full h-3 shadow-inner border border-slate-800">
+                                <div id="bar-${index}" class="${stat.color} h-full rounded-full stat-bar shadow-[0_0_10px_currentColor]" style="width: 0%"></div>
+                            </div>
                         </div>
-                        <div class="w-full bg-slate-900 rounded-full h-3 md:h-4 shadow-inner border border-slate-700">
-                            <div id="bar-${index}" class="${stat.color} h-full rounded-full stat-bar shadow-[0_0_10px_currentColor]" style="width: 0%"></div>
+                        
+                        <!-- Divider (Desktop) -->
+                        <div class="hidden md:block w-px h-10 bg-slate-700 mx-2"></div>
+                        
+                        <!-- Right: The Reason -->
+                        <div class="w-full md:w-7/12 text-sm text-slate-300 leading-relaxed border-l-2 md:border-l-0 border-slate-700 pl-3 md:pl-0">
+                            <span id="reason-${index}">Loading reasoning...</span>
                         </div>
                     </div>
                 `).join('');
@@ -549,26 +583,15 @@
             // Nearest milestone for text data (0, 1, 2, 3, 4)
             let closestMilestone = Math.round(percentage / 25);
             
-            // Update Top Header Phase Display
-            phaseDisplay.textContent = phaseNames[closestMilestone];
+            // Update Top Header Phase Display with Percentage
+            phaseDisplay.textContent = `${phaseNames[closestMilestone]} (${percentage}%)`;
 
             // Update Text Details (Snaps to phase)
             const phaseData = char.phases[closestMilestone];
             elPhaseSummary.textContent = phaseData.summary;
             elCharQuote.textContent = `"${phaseData.quote}"`;
             
-            // Build Reasons List
-            elReasonsList.innerHTML = phaseData.reasons.map(r => `
-                <li class="flex items-start gap-3 bg-slate-900/50 p-3 rounded-lg border border-slate-700/50">
-                    <div class="min-w-[4px] h-full bg-sky-500 rounded-full mt-1"></div>
-                    <p class="text-sm">
-                        <span class="font-bold text-slate-200 block mb-0.5">${r.label}</span> 
-                        ${r.text}
-                    </p>
-                </li>
-            `).join('');
-
-            // Update Stat Bars (Smooth Interpolation)
+            // Update Stat Bars and Reasons
             char.stats.forEach((stat, index) => {
                 const lowerVal = stat.values[lowerIndex];
                 const upperVal = stat.values[upperIndex];
@@ -576,10 +599,14 @@
                 
                 const barEl = document.getElementById(`bar-${index}`);
                 const valEl = document.getElementById(`val-${index}`);
+                const reasonEl = document.getElementById(`reason-${index}`);
                 
-                if(barEl && valEl) {
+                if(barEl && valEl && reasonEl) {
                     barEl.style.width = `${currentVal}%`;
                     valEl.textContent = `${currentVal}%`;
+                    
+                    // Inject the matching reason text
+                    reasonEl.textContent = phaseData.reasons[index];
                 }
             });
         }
