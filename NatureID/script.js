@@ -3,7 +3,7 @@ const video = document.getElementById('webcam');
 async function startCamera() {
     try {
         // Request video only (audio: false)
-        const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
         
         // Set the source of the video element to the stream
         video.srcObject = stream;
