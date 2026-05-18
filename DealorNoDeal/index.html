@@ -1,170 +1,156 @@
-import React, { useState } from "react";
-import {
-  jsx as _jsx,
-  jsxs as _jsxs,
-  Fragment as _Fragment
-} from "react/jsx-runtime";
-export default function DealOrNoDealRandomizer() {
-  const [poolInput, setPoolInput] = useState(
-    "Pizza\nDragon\nTreasure Chest\nLaser Pointer\nRubber Duck\nMystery Box\nGolden Ticket\nSpaceship"
-  );
-  const [cases, setCases] = useState([]);
-  const [opened, setOpened] = useState([]);
-  const [started, setStarted] = useState(false);
-  function shuffle(array) {
-    const arr = [...array];
-    for (let i = arr.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [arr[i], arr[j]] = [arr[j], arr[i]];
-    }
-    return arr;
-  }
-  function startGame() {
-    const items = poolInput
-      .split("\n")
-      .map((item) => item.trim())
-      .filter((item) => item.length > 0);
-    if (items.length < 6) {
-      alert("Please enter at least 6 items in the pool.");
-      return;
-    }
-    const selected = shuffle(items).slice(0, 6);
-    setCases(selected);
-    setOpened(Array(6).fill(false));
-    setStarted(true);
-  }
-  function openCase(index) {
-    if (opened[index]) {
-      return;
-    }
-    const updated = [...opened];
-    updated[index] = true;
-    setOpened(updated);
-  }
-  function resetGame() {
-    setCases([]);
-    setOpened([]);
-    setStarted(false);
-  }
-  return /*#__PURE__*/ _jsxs("div", {
-    className:
-      "min-h-screen bg-gradient-to-b from-yellow-100 to-orange-200 p-6 flex flex-col items-center",
-    children: [
-      /*#__PURE__*/ _jsx("h1", {
-        className: "text-4xl font-bold mb-4 text-center",
-        children: "Deal or No Deal Randomizer"
-      }),
-      /*#__PURE__*/ _jsxs("div", {
-        className: "bg-white shadow-xl rounded-3xl p-6 w-full max-w-2xl mb-6",
-        children: [
-          /*#__PURE__*/ _jsx("p", {
-            className: "text-lg font-semibold mb-2",
-            children: "Enter your item pool (one item per line):"
-          }),
-          /*#__PURE__*/ _jsx("textarea", {
-            value: poolInput,
-            onChange: (e) => setPoolInput(e.target.value),
-            className:
-              "w-full h-48 border-2 border-gray-300 rounded-xl p-3 text-base"
-          }),
-          /*#__PURE__*/ _jsxs("div", {
-            className: "flex gap-4 mt-4 flex-wrap",
-            children: [
-              /*#__PURE__*/ _jsx("button", {
-                onClick: startGame,
-                className:
-                  "bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-2xl text-lg font-bold shadow-md transition",
-                children: "Start Game"
-              }),
-              /*#__PURE__*/ _jsx("button", {
-                onClick: resetGame,
-                className:
-                  "bg-gray-500 hover:bg-gray-600 text-white px-6 py-3 rounded-2xl text-lg font-bold shadow-md transition",
-                children: "Reset"
-              })
-            ]
-          })
-        ]
-      }),
-      started &&
-        /*#__PURE__*/ _jsx("div", {
-          className: "grid grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-4xl",
-          children: cases.map((item, index) =>
-            /*#__PURE__*/ _jsx(
-              "div",
-              {
-                onClick: () => openCase(index),
-                className: "cursor-pointer",
-                children: /*#__PURE__*/ _jsx("div", {
-                  className: `rounded-3xl shadow-xl h-48 flex flex-col items-center justify-center transition-all duration-300 border-4 ${
-                    opened[index]
-                      ? "bg-white border-green-400"
-                      : "bg-red-600 border-yellow-300 hover:scale-105"
-                  }`,
-                  children: !opened[index]
-                    ? /*#__PURE__*/ _jsxs(_Fragment, {
-                        children: [
-                          /*#__PURE__*/ _jsx("div", {
-                            className: "text-6xl",
-                            children: "\uD83D\uDCBC"
-                          }),
-                          /*#__PURE__*/ _jsx("div", {
-                            className: "text-white text-3xl font-bold mt-2",
-                            children: index + 1
-                          })
-                        ]
-                      })
-                    : /*#__PURE__*/ _jsxs(_Fragment, {
-                        children: [
-                          /*#__PURE__*/ _jsx("div", {
-                            className: "text-4xl mb-2",
-                            children: "\uD83C\uDF89"
-                          }),
-                          /*#__PURE__*/ _jsx("div", {
-                            className:
-                              "text-center text-xl font-bold px-2 break-words",
-                            children: item
-                          })
-                        ]
-                      })
-                })
-              },
-              index
-            )
-          )
-        }),
-      /*#__PURE__*/ _jsxs("div", {
-        className: "mt-8 bg-white rounded-2xl shadow-lg p-4 w-full max-w-2xl",
-        children: [
-          /*#__PURE__*/ _jsx("h2", {
-            className: "text-2xl font-bold mb-2",
-            children: "Quick Test Cases"
-          }),
-          /*#__PURE__*/ _jsxs("ul", {
-            className: "list-disc list-inside space-y-1 text-sm md:text-base",
-            children: [
-              /*#__PURE__*/ _jsx("li", {
-                children: "Entering fewer than 6 items should show an alert."
-              }),
-              /*#__PURE__*/ _jsx("li", {
-                children:
-                  "Starting the game should randomly choose exactly 6 items."
-              }),
-              /*#__PURE__*/ _jsx("li", {
-                children: "Clicking a briefcase should reveal its hidden item."
-              }),
-              /*#__PURE__*/ _jsx("li", {
-                children:
-                  "Opened briefcases should stay revealed when clicked again."
-              }),
-              /*#__PURE__*/ _jsx("li", {
-                children:
-                  "Reset should clear the board and hide all briefcases."
-              })
-            ]
-          })
-        ]
-      })
-    ]
-  });
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deal or No Deal Randomizer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState } = React;
+
+        function DealOrNoDealRandomizer() {
+            const [poolInput, setPoolInput] = useState(
+                "Pizza\nDragon\nTreasure Chest\nLaser Pointer\nRubber Duck\nMystery Box\nGolden Ticket\nSpaceship"
+            );
+
+            const [cases, setCases] = useState([]);
+            const [opened, setOpened] = useState([]);
+            const [started, setStarted] = useState(false);
+
+            function shuffle(array) {
+                const arr = [...array];
+                for (let i = arr.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [arr[i], arr[j]] = [arr[j], arr[i]];
+                }
+                return arr;
+            }
+
+            function startGame() {
+                const items = poolInput
+                    .split("\n")
+                    .map((item) => item.trim())
+                    .filter((item) => item.length > 0);
+
+                if (items.length < 6) {
+                    alert("Please enter at least 6 items in the pool.");
+                    return;
+                }
+
+                const selected = shuffle(items).slice(0, 6);
+                setCases(selected);
+                setOpened(Array(6).fill(false));
+                setStarted(true);
+            }
+
+            function openCase(index) {
+                if (opened[index]) return;
+                const updated = [...opened];
+                updated[index] = true;
+                setOpened(updated);
+            }
+
+            function resetGame() {
+                setCases([]);
+                setOpened([]);
+                setStarted(false);
+            }
+
+            return (
+                <div className="min-h-screen bg-gradient-to-b from-yellow-100 to-orange-200 p-6 flex flex-col items-center">
+                    <h1 className="text-4xl font-bold mb-4 text-center">
+                        Deal or No Deal Randomizer
+                    </h1>
+
+                    <div className="bg-white shadow-xl rounded-3xl p-6 w-full max-w-2xl mb-6">
+                        <p className="text-lg font-semibold mb-2">
+                            Enter your item pool (one item per line):
+                        </p>
+
+                        <textarea
+                            value={poolInput}
+                            onChange={(e) => setPoolInput(e.target.value)}
+                            className="w-full h-48 border-2 border-gray-300 rounded-xl p-3 text-base"
+                        />
+
+                        <div className="flex gap-4 mt-4 flex-wrap">
+                            <button
+                                onClick={startGame}
+                                className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-2xl text-lg font-bold shadow-md transition"
+                            >
+                                Start Game
+                            </button>
+
+                            <button
+                                onClick={resetGame}
+                                className="bg-gray-500 hover:bg-gray-600 text-white px-6 py-3 rounded-2xl text-lg font-bold shadow-md transition"
+                            >
+                                Reset
+                            </button>
+                        </div>
+                    </div>
+
+                    {started && (
+                        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-4xl">
+                            {cases.map((item, index) => (
+                                <div
+                                    key={index}
+                                    onClick={() => openCase(index)}
+                                    className="cursor-pointer"
+                                >
+                                    <div
+                                        className={`rounded-3xl shadow-xl h-48 flex flex-col items-center justify-center transition-all duration-300 border-4 ${
+                                            opened[index]
+                                                ? "bg-white border-green-400"
+                                                : "bg-red-600 border-yellow-300 hover:scale-105"
+                                        }`}
+                                    >
+                                        {!opened[index] ? (
+                                            <>
+                                                <div className="text-6xl"></div>
+                                                <div className="text-white text-3xl font-bold mt-2">
+                                                    {index + 1}
+                                                </div>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <div className="text-4xl mb-2"></div>
+                                                <div className="text-center text-xl font-bold px-2 break-words">
+                                                    {item}
+                                                </div>
+                                            </>
+                                        )}
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    )}
+
+                    <div className="mt-8 bg-white rounded-2xl shadow-lg p-4 w-full max-w-2xl">
+                        <h2 className="text-2xl font-bold mb-2">Quick Test Cases</h2>
+                        <ul className="list-disc list-inside space-y-1 text-sm md:text-base">
+                            <li>Entering fewer than 6 items should show an alert.</li>
+                            <li>Starting the game should randomly choose exactly 6 items.</li>
+                            <li>Clicking a briefcase should reveal its hidden item.</li>
+                            <li>Opened briefcases should stay revealed when clicked again.</li>
+                            <li>Reset should clear the board and hide all briefcases.</li>
+                        </ul>
+                    </div>
+                </div>
+            );
+        }
+
+        // Render the component into our root div
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<DealOrNoDealRandomizer />);
+    </script>
+</body>
+</html>
